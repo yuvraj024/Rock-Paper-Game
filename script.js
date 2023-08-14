@@ -2,8 +2,9 @@ const btnRock=document.querySelector(".rock");
 const btnPaper=document.querySelector(".paper");
 const btnScissors=document.querySelector(".scissors");
 const container=document.querySelector(".container");
+// Take user Choice
 container.addEventListener("click",playRound);
-
+// Take computer choice
 function getComputerChoice(){
     const randomNo=Math.random();
     if(randomNo<0.33){
@@ -16,6 +17,9 @@ function getComputerChoice(){
         return "scissors";
     }
 }
+const p=document.createElement("p");
+
+
 
 function playRound(e){
     // const player=prompt("Enter your choice (Rock,Paper or Scissor?");
@@ -29,33 +33,34 @@ function playRound(e){
     else if(e.target.classList.contains("scissors")){
         playerSelection="scissors";
     }
-    const computerSelection=getComputerChoice(); 
     
-    // console.log("User: "+ playerSelection);
-    // console.log("Computer:"+computerSelection);
+    const computerSelection=getComputerChoice(); 
+
     if(playerSelection==computerSelection){
-        return "It's a tie";
+        p.innerText="It's a Tie";
     }
     if(playerSelection=="rock"){
         if(computerSelection=="paper"){
-            return "You Lose! Paper beats Rock";
+            p.innerText="You Lose! Paper beats Rock";
         }
-        return "You Win! Rock beats Scissors";
+        p.innerText="You Win! Rock beats Scissors";
     }
     else if(playerSelection=="paper"){
         if(computerSelection=="rock"){
-            return "You Win! Paper beats Rock";
-        }return "You Lose! Scissors beats Paper";
+            p.innerText="You Win! Paper beats Rock";
+        }p.innerText= "You Lose! Scissors beats Paper";
     }
     else if(playerSelection=="scissors"){
         if(computerSelection=="rock"){
-            return "You Lose! Rock beats Scissors";
-        }return "You Win! Scissors beats Paper";
+            p.innerText="You Lose! Rock beats Scissors";
+        }p.innerText="You Win! Scissors beats Paper";
     }
     else{
-         return "Enter a right choice";
+        p.innerText="Enter a right choice";
     }    
 }
+
+container.appendChild(p);
 
 // function game(){
 //     let userPoints=0,computerPoints=0;
