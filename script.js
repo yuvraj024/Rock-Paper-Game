@@ -1,6 +1,4 @@
-const btnRock=document.querySelector(".rock");
-const btnPaper=document.querySelector(".paper");
-const btnScissors=document.querySelector(".scissors");
+const buttons=document.querySelectorAll(".user");
 const container=document.querySelector(".container");
 
 let userPoints=0,computerPoints=0;
@@ -16,6 +14,13 @@ function getComputerChoice(){
     else{
         return "scissors";
     }
+}
+
+// Disabled Function 
+function disableBtn(){
+    buttons.forEach(button=>{
+        button.disabled=true;
+    })
 }
 const p=document.createElement("p");
 
@@ -73,6 +78,8 @@ function game(e){
         if(userPoints==5 || computerPoints==5){
             container.removeEventListener("click",game);
             p.innerText=(userPoints==5)?"You win the game!":"Computer win the game!";
+            disableBtn();
+            
         }
         
     }
