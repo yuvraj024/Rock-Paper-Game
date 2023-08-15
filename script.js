@@ -58,14 +58,16 @@ function game(e){
         // console.log("ROUND " +(1));
         const ans=playRound(e);
         console.log(ans);
-
+        
         // console.log(playRound());
         if(ans.includes("Win")){
             userPoints+=1;
+
         }
         else if(ans.includes("Lose")){
             computerPoints+=1;
         }
+        p.innerHTML+=`<br>Player Score:${userPoints}<br>Computer Score:${computerPoints}`;
         console.log("User :"+userPoints);
         console.log("Computer: "+computerPoints);
         if(userPoints==5 || computerPoints==5){
